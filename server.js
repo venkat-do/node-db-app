@@ -189,7 +189,10 @@ app.get('/api/products', async (req, res) => {
       query += ' AND stock > 0';
     }
 
-    query += ' ORDER BY created_at DESC';
+    // Use ORDER BY random() to prevent PostgreSQL query caching
+    // This forces a full table scan and prevents cached execution plans
+    // Essential for accurate load testing of database performance
+    query += ' ORDER BY random() LIMIT 10';
 
     const result = await pool.query(query, params);
 
