@@ -1,3 +1,11 @@
+// Load environment variables from .env file if it exists (for local development only)
+// The try/catch ensures the app works even if dotenv is not installed (production)
+try {
+  require('dotenv').config();
+} catch (e) {
+  // dotenv not installed or .env file doesn't exist - that's fine for production
+}
+
 const express = require('express');
 const { Pool } = require('pg');
 const app = express();

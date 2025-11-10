@@ -23,5 +23,8 @@
     "database"
   ],
   "author": "Benchmark Test",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^17.2.3"
+  }
 }
