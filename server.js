@@ -1,10 +1,10 @@
-// Load environment variables from .env file (for local development)
-require('dotenv').config();
-
 const express = require('express');
 const { Pool } = require('pg');
 const app = express();
+
+// Configuration with sensible defaults
 const port = process.env.PORT || 3000;
+const nodeEnv = process.env.NODE_ENV || 'production';
 
 // Database connection configuration
 // Supports both DATABASE_URL and individual connection parameters
